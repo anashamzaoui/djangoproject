@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from .models import Dht11
-from django.utils import timezone
 import csv
-from django.http import HttpResponse
 from django.http import JsonResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from io import BytesIO
+from django.http import HttpResponse
+from reportlab.lib import colors
+from django.utils import timezone
 import datetime
+from .models import Dht11
 
 #fct pour afficher la dernière valeur et le temps écoulé
 def table(request):
@@ -85,15 +89,6 @@ def chart_data_mois(request):
     }
     return JsonResponse(data)
 
-
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from io import BytesIO
-from django.http import HttpResponse
-from reportlab.lib import colors
-from django.utils import timezone
-import datetime
-from .models import Dht11
 
 def download_pdf(request):
 

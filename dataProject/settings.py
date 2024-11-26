@@ -33,8 +33,8 @@ INSTALLED_APPS = [
     'DHT',
     'rest_framework',
     'corsheaders',
+    'Account',
     'rest_framework_simplejwt',
-    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -93,6 +93,9 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,  # Si les tokens doivent être invalidés après rotation
     'UPDATE_LAST_LOGIN': True,  # Mettre à jour l'heure de dernière connexion
 }
+
+AUTH_USER_MODEL = 'Account.UtilisateurPersonnalise'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
